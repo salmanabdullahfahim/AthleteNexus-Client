@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import RegisterImage from '../../../public/SignUp.svg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
+    
     const { register, handleSubmit } = useForm();
+    const { createUser} = useContext(AuthContext);
 
     const onSubmit = (data) => {
-        console.log(data);
+
         if (data.password !== data.confirmPassword) {
             return alert('Passwords do not match')
         }
+
+        createUser(data.email, data.password)
+        .then(result => {
+            const registeredUsers = result.user;
+            console.log(registeredUsers);
+        })
 
 
     };
@@ -52,7 +61,7 @@ const Register = () => {
                         <label>Password</label>
                         <input
                             className='rounded-lg text-black bg-gray-300 mt-2 p-2 focus:border-blue-500 focus:bg-gray-100 focus:outline-none'
-                            type="text"
+                            type="password"
                             {...register('password')}
                         />
                     </div>
