@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import loginSvg from '../../../public/Login.svg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { FaGoogle, FaEye } from 'react-icons/fa';
+import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { logIn, signInWithGoogle } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -45,6 +46,10 @@ const Login = () => {
             })
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     const handleGoogleLogin = () => {
         signInWithGoogle()
             .then(result => {
@@ -64,6 +69,7 @@ const Login = () => {
 
             });
     }
+
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
@@ -91,14 +97,15 @@ const Login = () => {
                             <div className='relative'>
                                 <input
                                     className='w-full rounded-lg text-black bg-gray-300 mt-2 p-2 focus:border-blue-500 focus:bg-gray-100 focus:outline-none'
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     {...register('password', { required: true })}
                                 />
                                 <button
                                     type='button'
-                                    className='absolute text-black top-5 right-2'
+                                    className='absolute top-5 right-2'
+                                    onClick={togglePasswordVisibility}
                                 >
-                                    <FaEye />
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
                                 </button>
                             </div>
                             {errors.password?.type === 'required' && <p className="text-red-600 text-sm">Password field is required</p>}
