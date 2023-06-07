@@ -1,13 +1,18 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import loginSvg from '../../../public/Login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle, FaEye } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { register, handleSubmit ,formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const { logIn, signInWithGoogle } = useContext(AuthContext);
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
 
     const onSubmit = (data) => {
         // console.log(data);
@@ -15,6 +20,28 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
+
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User Login successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                navigate(from, { relative: true });
+            }).catch(error => {
+                setError(error.message)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Something went wrong',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+
             })
     };
 
@@ -23,7 +50,19 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User Login successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(from, { replace: true });
             })
+            .catch((error) => {
+                setError(error.message);
+
+            });
     }
 
     return (
@@ -42,16 +81,27 @@ const Login = () => {
                             <input
                                 className='rounded-lg text-black bg-gray-300 mt-2 p-2 focus:border-blue-500 focus:bg-gray-100 focus:outline-none'
                                 type="email"
-                                {...register('email')}
+                                {...register('email', { required: true })}
+                                placeholder='Enter email address'
                             />
+                            {errors.email?.type === 'required' && <p className="text-red-600 text-sm">Email field is required</p>}
                         </div>
                         <div className='flex flex-col text-gray-400 py-2'>
                             <label>Password</label>
-                            <input
-                                className='rounded-lg text-black bg-gray-300 mt-2 p-2 focus:border-blue-500 focus:bg-gray-100 focus:outline-none'
-                                type="password"
-                                {...register('password')}
-                            />
+                            <div className='relative'>
+                                <input
+                                    className='w-full rounded-lg text-black bg-gray-300 mt-2 p-2 focus:border-blue-500 focus:bg-gray-100 focus:outline-none'
+                                    type="password"
+                                    {...register('password', { required: true })}
+                                />
+                                <button
+                                    type='button'
+                                    className='absolute text-black top-5 right-2'
+                                >
+                                    <FaEye />
+                                </button>
+                            </div>
+                            {errors.password?.type === 'required' && <p className="text-red-600 text-sm">Password field is required</p>}
                         </div>
 
                         <button className='w-full my-5 py-2 bg-primary shadow-lg shadow-primary/50 hover:shadow-primary/40 text-white font-semibold rounded-lg'>Login</button>
