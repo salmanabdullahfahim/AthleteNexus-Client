@@ -7,7 +7,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const Register = () => {
     
     const { register, handleSubmit } = useForm();
-    const { createUser} = useContext(AuthContext);
+    const { createUser,updateUserProfile} = useContext(AuthContext);
 
     const onSubmit = (data) => {
 
@@ -19,6 +19,22 @@ const Register = () => {
         .then(result => {
             const registeredUsers = result.user;
             console.log(registeredUsers);
+
+            updateUserProfile(data.name, data.photoURL)
+                .then(()=> {
+                    const saveUser = {name: data.name, email: data.email }
+                    fetch('http://localhost:5000/users', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(saveUser)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                        })
+                })
         })
 
 
