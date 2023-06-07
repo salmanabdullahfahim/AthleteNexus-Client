@@ -41,18 +41,17 @@ const Navbar = () => {
 
     if (user) {
         menuItems.push({
-          name: 'Dashboard',
-          href: '/dashboard',
+            name: 'Dashboard',
+            href: '/dashboard',
         });
-      }
+    }
     return (
-        <div className="relative w-full bg-white md:p-2">
+        <div className=" w-full bg-white shadow-lg rounded sticky top-0 left-0 z-50">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
                 <div className="inline-flex items-center space-x-2">
-                    <span>
-
-                    </span>
-                    <span className="font-bold text-2xl">Athlete <span className='text-[#6674cc]'>Nexus</span></span>
+                    <Link to='/'>
+                        <span className="font-bold text-2xl">Athlete <span className='text-[#6674cc]'>Nexus</span></span>
+                    </Link>
                 </div>
                 <div className="hidden lg:block">
                     <ul className="inline-flex space-x-8">
@@ -97,10 +96,10 @@ const Navbar = () => {
                             <div className="px-5 pb-6 pt-5">
                                 <div className="flex items-center justify-between">
                                     <div className="inline-flex items-center space-x-2">
-                                        <span>
 
-                                        </span>
-                                        <span className="font-bold text-3xl">Athlete <span className='text-[#6674cc]'>Nexus</span></span>
+                                        <Link to="/">
+                                            <span className="font-bold text-3xl">Athlete <span className='text-[#6674cc]'>Nexus</span></span>
+                                        </Link>
                                     </div>
                                     <div className="-mr-2">
                                         <button
