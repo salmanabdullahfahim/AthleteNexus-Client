@@ -6,7 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit ,formState: { errors } } = useForm();
     const { logIn, signInWithGoogle } = useContext(AuthContext);
 
     const onSubmit = (data) => {

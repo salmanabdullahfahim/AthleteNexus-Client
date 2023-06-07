@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Menu, X, LogIn } from 'lucide-react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Navbar = () => {
 
@@ -25,12 +26,22 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen)
     }
 
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
     return (
         <div className="relative w-full bg-white md:p-2">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
                 <div className="inline-flex items-center space-x-2">
                     <span>
-                       
+
                     </span>
                     <span className="font-bold text-2xl">Athlete <span className='text-[#6674cc]'>Nexus</span></span>
                 </div>
@@ -49,12 +60,20 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="hidden lg:block">
-                    <Link to='/login'
-                        type="button"
-                        className="rounded-md bg-[#6674cc] px-6 py-2 flex items-center text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                        Login <LogIn className='h-4' />
-                    </Link>
+                    
+                    {
+                        user ? <button onClick={handleLogout}
+                            type="button"
+                            className="mt-4 w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                        >
+                            Logout
+                        </button> : <Link to='/login'
+                            type="button"
+                            className="mt-4 flex items-center w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                        >
+                            Login <LogIn className='h-4' />
+                        </Link>
+                    }
                 </div>
                 <div className="lg:hidden">
                     <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -66,7 +85,7 @@ const Navbar = () => {
                                 <div className="flex items-center justify-between">
                                     <div className="inline-flex items-center space-x-2">
                                         <span>
-                                           
+
                                         </span>
                                         <span className="font-bold text-3xl">Athlete <span className='text-[#6674cc]'>Nexus</span></span>
                                     </div>
@@ -96,12 +115,19 @@ const Navbar = () => {
                                         ))}
                                     </nav>
                                 </div>
-                                <Link to='/login'
-                                    type="button"
-                                    className="mt-4 w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                                >
-                                    Login
-                                </Link>
+                                {
+                                    user ? <button onClick={handleLogout}
+                                        type="button"
+                                        className="mt-4 w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                                    >
+                                        Logout
+                                    </button> : <Link to='/login'
+                                        type="button"
+                                        className="mt-4 w-full flex items-center rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                                    >
+                                        Login
+                                    </Link>
+                                }
                             </div>
                         </div>
                     </div>
