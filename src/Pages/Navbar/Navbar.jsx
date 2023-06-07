@@ -19,6 +19,7 @@ const Navbar = () => {
             name: 'Classes',
             href: '/classes',
         },
+
     ]
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -28,6 +29,8 @@ const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
+    console.log(user)
+
     const handleLogout = () => {
         logOut()
             .then()
@@ -36,6 +39,12 @@ const Navbar = () => {
             })
     }
 
+    if (user) {
+        menuItems.push({
+          name: 'Dashboard',
+          href: '/dashboard',
+        });
+      }
     return (
         <div className="relative w-full bg-white md:p-2">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
@@ -60,18 +69,22 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="hidden lg:block">
-                    
+
                     {
-                        user ? <button onClick={handleLogout}
+                        user ? <div className='flex items-center gap-2'>
+                            {user.photoURL && <img className="h-12 rounded-full mt-3 border-2 mt border-primary cursor-pointer" src={user?.photoURL} alt="" title={user?.displayName} />}
+
+                            <button onClick={handleLogout}
+                                type="button"
+                                className="mt-4 w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                            >
+                                Logout
+                            </button>
+                        </div> : <Link to='/login'
                             type="button"
-                            className="mt-4 w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                            className="mt-4 w-full flex items-center rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                         >
-                            Logout
-                        </button> : <Link to='/login'
-                            type="button"
-                            className="mt-4 flex items-center w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                        >
-                            Login <LogIn className='h-4' />
+                            Login
                         </Link>
                     }
                 </div>
@@ -115,13 +128,21 @@ const Navbar = () => {
                                         ))}
                                     </nav>
                                 </div>
+
+
+
+
                                 {
-                                    user ? <button onClick={handleLogout}
-                                        type="button"
-                                        className="mt-4 w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                                    >
-                                        Logout
-                                    </button> : <Link to='/login'
+                                    user ? <>
+                                        {user.photoURL && <img className="h-12 rounded-full border-2  border-white cursor-pointer" src={user?.photoURL} alt="" title={user?.displayName} />}
+
+                                        <button onClick={handleLogout}
+                                            type="button"
+                                            className="mt-4 w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                                        >
+                                            Logout
+                                        </button>
+                                    </> : <Link to='/login'
                                         type="button"
                                         className="mt-4 w-full flex items-center rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                                     >
