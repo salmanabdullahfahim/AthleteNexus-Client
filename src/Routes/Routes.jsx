@@ -8,11 +8,13 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard";
 import InstructorDashBoard from "../Pages/Dashboard/InstructorDashBoard";
 import StudentdashBoard from "../Pages/Dashboard/StudentdashBoard";
+import Error from "../Pages/Error/Error";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
