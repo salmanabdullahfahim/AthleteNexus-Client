@@ -6,6 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
+
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { logIn, signInWithGoogle } = useContext(AuthContext);
@@ -33,15 +34,13 @@ const Login = () => {
 
                 navigate(from, { relative: true });
             }).catch(error => {
-                setError(error.message)
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: 'Something went wrong',
+                    title: `${error.message}`,
                     showConfirmButton: false,
                     timer: 1500
                 });
-
 
             })
     };
@@ -76,7 +75,14 @@ const Login = () => {
                     })
             })
             .catch((error) => {
-                setError(error.message);
+               
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: `${error.message}`,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
 
             });
     }
@@ -132,7 +138,7 @@ const Login = () => {
                         <button onClick={() => handleGoogleLogin()} className="btn btn-black w-full btn-outline"><span className="mr-4 text-red-600"><FaGoogle /></span> Log in with Google</button>
                     </div>
                 </div>
-
+                
 
             </div>
         </div>
