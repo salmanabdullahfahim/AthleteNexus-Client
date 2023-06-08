@@ -44,7 +44,7 @@ const Register = () => {
 
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email }
+                        const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL }
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
@@ -69,14 +69,25 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'User Login successfully.',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                navigate(from, { replace: true });
+                const saveUser = { name: user?.displayName, email: user?.email, photoUrl: user?.photoUrl }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'User Login successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    })
             })
             .catch((error) => {
                 setError(error.message);
