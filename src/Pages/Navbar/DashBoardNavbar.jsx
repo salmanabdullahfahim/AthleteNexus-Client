@@ -9,7 +9,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="adminDashboard"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
           Dashboard-Admin
@@ -18,7 +18,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="instructorDashboard"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
           Dashboard-Instructor
@@ -27,7 +27,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="studentDashboard"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
           Dashboard-Student
@@ -36,7 +36,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="mySelectedClasses"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
           My Selected Classes
@@ -45,7 +45,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="myEnrolledClasses"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
          My Enrolled Classes
@@ -54,7 +54,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="addClass"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
           Add A Class
@@ -63,7 +63,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="totalEnrolledStudents"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
           Total Enrolled Students
@@ -72,7 +72,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="feedback"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
           Feedback
@@ -81,7 +81,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="manageClasses"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
          Manage Classes
@@ -90,7 +90,7 @@ const DashboardNavbar = () => {
       <li>
         <NavLink
           to="manageUsers"
-          exact={true}
+           
           className="text-white hover:bg-indigo-400 w-full rounded-lg px-4 py-2 mb-2 inline-block text-base leading-loose"
         >
          Manage Users

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-const useAllUser = () => {
+const useAllUsers = () => {
     const { data: users = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -8,8 +8,11 @@ const useAllUser = () => {
             return res.json();
         }
     });
- 
-    return [users, loading, refetch];
+   
+    return [users, refetch, loading];
 };
 
-export default useAllUser;
+export default useAllUsers;
+
+
+
