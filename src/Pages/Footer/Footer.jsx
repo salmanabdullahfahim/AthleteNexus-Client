@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer aria-label="Site Footer" className="bg-primary">
+        <footer aria-label="Site Footer" className="bg-primary mt-36">
             <div
                 className="max-w-screen-xl px-4 py-6 mx-auto space-y-8 sm:px-6 lg:space-y-16 lg:px-8"
             >
@@ -215,7 +215,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <p className="text-xs text-white text-center">
                     &copy; 2023 Athlete Nexus All rights reserved.
                 </p>
