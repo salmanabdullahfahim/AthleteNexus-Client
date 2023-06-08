@@ -50,7 +50,7 @@ const ManageUsers = () => {
                             <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td>
-                                    <img src={user?.photoUrl} alt="User" />
+                                    <img src={user?.photoURL} className='inline-block h-12 w-12 border border-primary rounded-full' alt="User" />
                                 </td>
                                 <td>{user?.name}</td>
                                 <td>{user?.email}</td>
