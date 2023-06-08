@@ -215,7 +215,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-
+                
                 <p className="text-xs text-white text-center">
                     &copy; 2023 Athlete Nexus All rights reserved.
                 </p>

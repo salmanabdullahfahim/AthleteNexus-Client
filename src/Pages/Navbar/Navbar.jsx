@@ -13,7 +13,7 @@ const Navbar = () => {
         },
         {
             name: 'Instructors',
-            href: '/instrustor',
+            href: '/instructors',
         },
         {
             name: 'Classes',
@@ -127,9 +127,6 @@ const Navbar = () => {
                                         ))}
                                     </nav>
                                 </div>
-
-
-
 
                                 {
                                     user ? <>

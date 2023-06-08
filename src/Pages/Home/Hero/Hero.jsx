@@ -5,20 +5,23 @@ import { RxDotFilled } from 'react-icons/rx';
 const Hero = () => {
   const slides = [
     {
-      url: 'https://i.ibb.co/QPpNw28/live-cricket-tournament-banner-free-vector.jpg',
+      url: 'https://i.ibb.co/dW5yj8j/pexels-patrick-case-3628912.jpg',
     },
     {
-      url: 'https://contents.mediadecathlon.com/p1785689/k$08536a3c2ca242ff0840d242bf65fd68/1920x0/3576pt2315/7151xcr3065/default.jpg?format=auto',
+      url: 'https://i.ibb.co/yNGwG8j/pexels-miracle-15874987.jpg',
     },
     {
-      url: 'https://plus.unsplash.com/premium_photo-1677010202726-8cf11ac08fd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG9ja2V5fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60',
+      url: 'https://i.ibb.co/6vD3KXN/pexels-vlad-vasnetsov-2202685.jpg',
     },
 
     {
-      url: 'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80',
+      url: 'https://i.ibb.co/tBtgqXD/pexels-kampus-production-6180408.jpg',
     },
     {
-      url: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
+      url: 'https://i.ibb.co/RB8R3hT/pexels-cottonbro-studio-6557330.jpg',
+    },
+    {
+      url: 'https://i.ibb.co/9V3ydDs/pexels-joe-calomeni-718952.jpg',
     },
   ];
 
