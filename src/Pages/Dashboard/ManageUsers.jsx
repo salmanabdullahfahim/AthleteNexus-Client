@@ -9,7 +9,7 @@ const ManageUsers = () => {
     const handleChangeRole = (user, role) => {
         const url = `http://localhost:5000/users/role/?id=${user._id}&role=${role}`;
 
-        fetch(url ,{
+        fetch(url, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -27,6 +27,28 @@ const ManageUsers = () => {
                 }
             });
     };
+
+    const handleDeleteUser = (user) => {
+        const url = `http://localhost:5000/users?id=${user._id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is deleted successfully`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            });
+    };
+
 
     return (
         <div>
@@ -58,55 +80,9 @@ const ManageUsers = () => {
 
                                 <th>
                                     <div className="float-right">
-                                        {user?.role === 'admin' && (
-                                            <>
-                                                <button
-                                                    onClick={() => handleChangeRole(user, 'student')}
-                                                    className="btn-primary mx-2 rounded-lg p-3"
-                                                >
-                                                    Student
-                                                </button>
-                                                <button
-                                                    onClick={() => handleChangeRole(user, 'instructor')}
-                                                    className="btn-primary mx-2 rounded-lg p-3"
-                                                >
-                                                    Instructor
-                                                </button>
-                                            </>
-                                        )}
-                                        {user?.role === 'instructor' && (
-                                            <>
-                                                <button
-                                                    onClick={() => handleChangeRole(user, 'admin')}
-                                                    className="btn-primary mx-2 rounded-lg p-3"
-                                                >
-                                                    Admin
-                                                </button>
-                                                <button
-                                                    onClick={() => handleChangeRole(user, 'student')}
-                                                    className="btn-primary mx-2 rounded-lg p-3"
-                                                >
-                                                    Student
-                                                </button>
-                                            </>
-                                        )}
-                                        {user?.role === 'student' && (
-                                            <>
-                                                <button
-                                                    onClick={() => handleChangeRole(user, 'admin')}
-                                                    className="btn-primary mx-2 rounded-lg p-3"
-                                                >
-                                                    Admin
-                                                </button>
-                                                <button
-                                                    onClick={() => handleChangeRole(user, 'instructor')}
-                                                    className="btn-primary mx-2 rounded-lg p-3"
-                                                >
-                                                    Instructor
-                                                </button>
-                                            </>
-                                        )}
-                                        <button className="btn btn-ghost bg-red-600 text-white">
+                                        <button disabled={user?.role === 'admin' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "admin")} className=' btn btn-primary mx-2 rounded-lg p-3'> Admin</button>
+                                        <button disabled={user?.role === 'instructor' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "instructor")} className=' btn btn-primary mx-2 rounded-lg p-3'> Instructor</button>
+                                        <button onClick={()=> handleDeleteUser(user)} className="btn btn-ghost bg-red-600 text-white">
                                             <FaTrashAlt />
                                         </button>
                                     </div>
