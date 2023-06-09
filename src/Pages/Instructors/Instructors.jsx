@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Instructors = () => {
+
+    
+    const [instructors, setInstructors] = useState([]);
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/users/instructor')
+        .then( res => res.json())
+        .then(data => setInstructors(data))
+    })
     return (
-        <div className="w-[300px] rounded-md border my-6">
-            <img
-                src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsb2d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-                alt="Laptop"
-                className="h-[200px] w-full rounded-md object-cover"
-            />
-            <div className="p-4">
-                <h1 className="text-lg font-semibold">Name</h1>
-                <p className="mt-3 text-sm text-gray-600">
-                    Email:
-                </p>
-                
+        <div>
+            <h2 className='text-center font-bold text-3xl text-primary my-6'>All Instructors</h2>
+
+            <div className='grid grid-cols-3 gap-5 w-11/12 mx-auto'>
+                {
+                    instructors?.map(instructor => <>
+                        <div className="card w-96 bg-base-100 shadow-xl">
+                            <figure><img src={instructor?.photoURL} /></figure>
+                            <div className="card-body">
+                                <p className="card-title">Instructor Name: {instructor?.name}</p>
+                                <p>Instructor Email: {instructor?.email}</p>
+                               
+                                
+                            </div>
+                        </div>
+                    </>)
+                }
             </div>
         </div>
     );

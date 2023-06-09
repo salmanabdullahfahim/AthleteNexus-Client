@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useAllClasses from '../../Hook/useAllClasses';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const AllClasses = () => {
 
+    const { user } = useContext(AuthContext)
     const [allClass] = useAllClasses();
     console.log(allClass);
+
+    const handleSelectClass = (cls) => {
+        if (user) {
+            let classData = cls;
+            cls.studentEmail = user?.email;
+            console.log(classData);
+
+        }
+        else {
+            console.log('user not found')
+        }
+
+    }
     return (
         <div>
             <h2 className='text-center font-bold text-3xl text-primary my-6'>All Classes</h2>
@@ -20,7 +35,7 @@ const AllClasses = () => {
                                 <p>Available Seats: {cls?.availableSeats}</p>
                                 <p>Price: {cls?.price}</p>
                                 <div className="card-actions justify-end">
-                                    <button disabled={cls?.availableSeats == 0} className="btn btn-primary">Select Class</button>
+                                    <button disabled={cls?.availableSeats == 0} className="btn btn-primary" onClick={() => handleSelectClass(cls)}>Select Class</button>
                                 </div>
                             </div>
                         </div>
