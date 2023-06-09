@@ -14,7 +14,7 @@ const Instructors = () => {
         <div>
             <h2 className='text-center font-bold text-3xl text-primary my-6'>All Instructors</h2>
 
-            <div className='grid grid-cols-3 gap-5 w-11/12 mx-auto'>
+            <div className='grid md:grid-cols-3 gap-5 w-11/12 mx-auto'>
                 {
                     instructors?.map(instructor => <>
                         <div className="card w-96 bg-base-100 shadow-xl">
