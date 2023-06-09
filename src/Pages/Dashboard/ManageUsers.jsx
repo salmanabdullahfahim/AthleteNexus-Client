@@ -29,24 +29,38 @@ const ManageUsers = () => {
     };
 
     const handleDeleteUser = (user) => {
-        const url = `http://localhost:5000/users?id=${user._id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                    refetch();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: `${user.name} is deleted successfully`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }
-            });
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleSwalConfirm();
+            }
+        });
+
+        const handleSwalConfirm = () => {
+            const url = `http://localhost:5000/users?id=${user._id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        refetch();
+                        Swal.fire({
+                            title: 'Deleted!',
+                            text: `${user?.name} has been deleted!`,
+                            icon: 'success'
+                        });
+                    }
+                });
+        };
     };
 
 
@@ -82,7 +96,7 @@ const ManageUsers = () => {
                                     <div className="float-right">
                                         <button disabled={user?.role === 'admin' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "admin")} className=' btn btn-primary mx-2 rounded-lg p-3'> Admin</button>
                                         <button disabled={user?.role === 'instructor' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "instructor")} className=' btn btn-primary mx-2 rounded-lg p-3'> Instructor</button>
-                                        <button onClick={()=> handleDeleteUser(user)} className="btn btn-ghost bg-red-600 text-white">
+                                        <button onClick={() => handleDeleteUser(user)} className="btn btn-ghost bg-red-600 text-white">
                                             <FaTrashAlt />
                                         </button>
                                     </div>

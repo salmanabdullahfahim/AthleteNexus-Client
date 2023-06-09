@@ -17,6 +17,7 @@ const AllClasses = () => {
 
         if (user && !isExist) {
             let classData = cls;
+            delete classData._id;
             cls.studentEmail = user?.email;
             console.log(classData);
 
