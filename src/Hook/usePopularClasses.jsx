@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
-const useTopClasses = () => {
+const usePopularClasses = () => {
   const { data: topClasses = [], isLoading: loading, refetch } = useQuery({
     queryKey: ['topClasses'],
     queryFn: async () => {
@@ -13,4 +13,4 @@ const useTopClasses = () => {
   return [topClasses, refetch, loading];
 };
 
-export default useTopClasses;
+export default usePopularClasses;
