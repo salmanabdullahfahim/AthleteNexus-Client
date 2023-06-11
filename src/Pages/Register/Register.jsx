@@ -96,7 +96,7 @@ const Register = () => {
     }
 
     return (
-        <div className='grid grid-cols-1 sm:grid-cols-2 h-screen w-full'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 mt-6 w-full'>
             <div className='hidden sm:block'>
                 <img className='w-full h-96 mt-24 ' src={RegisterImage} alt="" />
             </div>
