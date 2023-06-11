@@ -5,8 +5,8 @@ const useAllClasses = () => {
   const { data: allClass = [], isLoading: loading, refetch } = useQuery({
     queryKey: ['allClass'],
     queryFn: async () => {
-      const res = await axios.get('http://localhost:5000/allClasses');
-      return res.data;
+      const res = await axios.get('http://localhost:5000/classes/approved');
+      return res.data; 
     },
   });
 

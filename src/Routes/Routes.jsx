@@ -15,6 +15,8 @@ import ManageClasses from "../Pages/Dashboard/ManageClasses";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import MySelectedClass from "../Pages/Dashboard/MySelectedClass";
 import Feedback from "../Pages/Dashboard/Feedback";
+import Payment from "../Pages/Payment/Payment";
+import MyEnrolledClasses from "../Pages/Dashboard/MyEnrolledClasses";
 
 const router = createBrowserRouter([
     {
@@ -80,6 +82,14 @@ const router = createBrowserRouter([
             {
                 path: 'feedback',
                 element: <Feedback></Feedback>
+            },
+            {
+                path: 'payment/:id',
+                element: <Payment></Payment>
+            },
+            {
+                path:'myEnrolledClasses',
+                element: <MyEnrolledClasses></MyEnrolledClasses>
             }
 
         ]

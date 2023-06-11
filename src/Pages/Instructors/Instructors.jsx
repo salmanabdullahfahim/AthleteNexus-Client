@@ -4,12 +4,15 @@ const Instructors = () => {
 
     
     const [instructors, setInstructors] = useState([]);
+    
 
     useEffect(()=>{
         fetch('http://localhost:5000/users/instructor')
         .then( res => res.json())
-        .then(data => setInstructors(data))
-    })
+        .then(data => {
+            setInstructors(data)
+        })
+    },[])
     return (
         <div>
             <h2 className='text-center font-bold text-3xl text-primary my-6'>All Instructors</h2>

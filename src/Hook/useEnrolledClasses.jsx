@@ -3,10 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 
-const useSelectedClasses = () => {
+
+const useEnrolledClasses = () => {
   const { user } = useContext(AuthContext);
-  const { data: selectedClasses = [], isLoading: loading, refetch } = useQuery({
-    queryKey: ['selectedClasses'],
+  const { data: enrolledClasses = [], isLoading: loading, refetch } = useQuery({
+    queryKey: ['enrolledClasses'],
     queryFn: async () => {
       const token = localStorage.getItem('access-token');
       const config = {
@@ -14,12 +15,12 @@ const useSelectedClasses = () => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const res = await axios.get(`http://localhost:5000/classes/selected?email=${user?.email}`, config);
+      const res = await axios.get(`http://localhost:5000/payments/enrolled/student?email=${user?.email}`, config);
       return res.data;
     },
   });
 
-  return [selectedClasses, refetch, loading];
+  return [enrolledClasses, refetch, loading];
 };
 
-export default useSelectedClasses;
+export default useEnrolledClasses;

@@ -146,7 +146,7 @@ const AddAClass = () => {
             <input
               type='submit'
               value='Add Class'
-              className='px-4 py-2 my-3 w-full font-semibold text-white bg-primary rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600'
+              className='px-4 py-2 my-3 w-full font-semibold text-white bg-primary rounded-md hover:bg-primary/80  focus:outline-none focus:bg-blue-600'
             />
           </div>
         </form>
