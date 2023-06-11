@@ -13,6 +13,18 @@ const AllClasses = () => {
     console.log(allClass);
 
     const handleSelectClass = (cls) => {
+
+        if (!user) {
+            Swal.fire({
+                title: 'Please log in first to select a class',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 1600,
+            })
+            return;
+        }
+
+
         const isExist = selectedClasses.find((slcls) => slcls._id === cls._id);
 
         if (user && !isExist) {
@@ -60,7 +72,7 @@ const AllClasses = () => {
             <div className='grid md:grid-cols-3 gap-5 w-11/12 mx-auto'>
                 {
                     allClass?.map(cls => <>
-                        <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card w-96 bg-base-100 shadow-xl" key={cls._id}>
                             <figure><img src={cls?.classImage} /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">Class Name: {cls?.className}</h2>

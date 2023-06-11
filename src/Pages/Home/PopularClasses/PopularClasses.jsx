@@ -8,7 +8,7 @@ const PopularClasses = () => {
     return (
         <>
             <h2 className='my-12 text-center text-4xl font-bold'>Popular Classes 🔥</h2>
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 mx-auto'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 mx-auto justify-center'>
                 {
                     popularClasses.map((popularClass) => {
                         return (
