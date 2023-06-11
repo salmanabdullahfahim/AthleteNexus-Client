@@ -5,8 +5,14 @@ const useDeniedClasses = () => {
   const { data: deniedClasses = [], isLoading: loading, refetch } = useQuery({
     queryKey: ['deniedClasses'],
     queryFn: async () => {
-      const res = await axios.get('http://localhost:5000/classes/denied');
-      return res.data; 
+      const token = localStorage.getItem('access-token');
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const res = await axios.get('http://localhost:5000/classes/denied', config);
+      return res.data;
     },
   });
 

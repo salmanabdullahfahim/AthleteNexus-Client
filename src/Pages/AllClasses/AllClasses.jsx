@@ -17,10 +17,9 @@ const AllClasses = () => {
 
         if (user && !isExist) {
             let classData = cls;
+            cls.classId = cls._id;
             delete classData._id;
             cls.studentEmail = user?.email;
-            console.log(classData);
-
             // Send data to the MongoDB server
             
             axios.post('http://localhost:5000/classes/selected', classData, {

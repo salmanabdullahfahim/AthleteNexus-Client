@@ -5,6 +5,7 @@ import useAllUsers from '../../Hook/useAllUsers';
 const ManageUsers = () => {
 
     const [users, refetch] = useAllUsers();
+    console.log(users)
 
     const handleChangeRole = (user, role) => {
         const url = `http://localhost:5000/users/role/?id=${user._id}&role=${role}`;

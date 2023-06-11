@@ -41,6 +41,7 @@ const AddAClass = () => {
                 availableSeats: data.availableSeats,
                 price: data.price,
                 status: 'pending',
+                totalEnrolled: 0
               };
               handleSwalFireWithUpdate(classData);
             }
