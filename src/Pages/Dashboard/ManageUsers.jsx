@@ -104,9 +104,9 @@ const ManageUsers = () => {
 
                                 <th>
                                     <div className="float-right">
-                                        <button disabled={user?.role === 'admin' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "admin")} className=' btn btn-primary mx-2 rounded-lg p-3'> Admin</button>
-                                        <button disabled={user?.role === 'instructor' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "instructor")} className=' btn btn-primary mx-2 rounded-lg p-3'> Instructor</button>
-                                        <button onClick={() => handleDeleteUser(user)} className="btn btn-ghost bg-red-600 text-white">
+                                        <button disabled={user?.role === 'admin' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "admin")} className=' btn btn-sm bg-[rgb(80,100,230)] hover:bg-[rgb(80,96,205)] py-2 mx-2 text-white rounded-lg p-3'> Admin</button>
+                                        <button disabled={user?.role === 'instructor' ? 'disabled' : ''} onClick={() => handleChangeRole(user, "instructor")} className=' btn btn-sm  bg-[rgb(14,131,163)] hover:bg-[rgb(27,104,152)] text-white mx-2 rounded-lg p-3 py-2'> Instructor</button>
+                                        <button onClick={() => handleDeleteUser(user)} className="btn btn-sm bg-red-600 text-white">
                                             <FaTrashAlt />
                                         </button>
                                     </div>

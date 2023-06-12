@@ -96,7 +96,7 @@ const DashboardNavbar = () => {
     );
 
     return (
-        <div className="w-72 bg-[#6674cc] h-screen p-5 pt-8 ">
+        <div className="w-72 bg-[#6674cc] h-screen  p-5 pt-8 ">
             <div className="items-center">
                 <h1 className="text-white origin-left font-medium text-xl">
                     Athlete Nexus
