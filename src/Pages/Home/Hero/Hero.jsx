@@ -11,11 +11,11 @@ const Hero = () => {
       url: 'https://static.vecteezy.com/system/resources/previews/014/467/937/non_2x/a-man-kicks-the-ball-hard-football-training-logo-design-template-vector.jpg',
     },
     {
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK8brzwtkRZLRXaP5kz-o8IzvgkZX88HFp7Q&usqp=CAU',
+      url: 'https://png.pngtree.com/background/20210706/original/pngtree-sports-volleyball-player-silhouette-background-picture-image_90793.jpg',
     },
 
     {
-      url: 'https://i.ibb.co/tBtgqXD/pexels-kampus-production-6180408.jpg',
+      url: 'https://media.istockphoto.com/id/164554023/vector/sport-background.jpg?s=612x612&w=0&k=20&c=QNj3CNnLYKNzRlPwrz9Il5nmvvjSWFlz_GJfZhnDNWs=',
     },
     {
       url: 'https://i.ibb.co/RB8R3hT/pexels-cottonbro-studio-6557330.jpg',
