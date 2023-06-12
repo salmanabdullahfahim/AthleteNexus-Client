@@ -10,7 +10,7 @@ const Community = () => {
         <h2 className='font-semibold text-5xl text-center'>
           Join our Community
         </h2>
-        <p className='text-center text-xl text-gray-700 py-4'>
+        <p className='text-center text-xl py-4'>
           If you would like to keep up on the latest posts and courses,
           come by and connect with us on the following links.
         </p>
