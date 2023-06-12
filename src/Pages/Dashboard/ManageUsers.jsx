@@ -85,8 +85,8 @@ const ManageUsers = () => {
                         <tr>
                             <th>#</th>
                             <th>Photo</th>
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th>Name and Email</th>
+                            
                             <th>Role</th>
                             <th className="text-center">Action</th>
                         </tr>
@@ -98,8 +98,11 @@ const ManageUsers = () => {
                                 <td>
                                     <img src={user?.photoURL} className='inline-block h-12 w-12 border border-primary rounded-full' alt="User" />
                                 </td>
-                                <td>{user?.name}</td>
-                                <td>{user?.email}</td>
+                                <td><div>
+                                    <p>{user?.name}</p>
+                                    <p>{user?.email}</p>
+                                </div></td>
+                                
                                 <th>{user?.role ? user.role : 'Student'}</th>
 
                                 <th>
