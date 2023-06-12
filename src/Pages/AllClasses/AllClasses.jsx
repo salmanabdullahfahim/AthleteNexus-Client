@@ -5,12 +5,17 @@ import useSelectedClasses from '../../Hook/useSelectedClasses';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { HashLoader } from 'react-spinners';
+import useInstructorRole from '../../Hook/useInstructorRole';
+import useAdmin from '../../Hook/useAdmin';
 
 const AllClasses = () => {
 
     const { user } = useContext(AuthContext)
     const [allClass, loading] = useAllClasses();
     const [selectedClasses, refetch] = useSelectedClasses();
+    const [isInstructor] = useInstructorRole();
+    const [isAdmin] = useAdmin();
+
     console.log(allClass);
 
 
@@ -70,7 +75,7 @@ const AllClasses = () => {
     return (
         <div>
 
-            <h2 className='text-center font-bold text-3xl text-primary my-6'>All Classes 🧮</h2>
+            <h2 className='text-center font-bold text-3xl text-[#6674cc] my-6'>All Classes 🧮</h2>
 
             <div className='grid md:grid-cols-3 gap-5 w-11/12 mx-auto'>
                 {
@@ -87,7 +92,7 @@ const AllClasses = () => {
                                 <p>Available Seats: {cls?.availableSeats}</p>
                                 <p>Price: {cls?.price}</p>
                                 <div className="card-actions justify-end">
-                                    <button disabled={cls?.availableSeats == 0 || cls?.role == 'instructor' || cls?.role == 'admin'} className="btn btn-primary" onClick={() => handleSelectClass(cls)}>Select Class</button>
+                                    <button disabled={cls?.availableSeats == 0 || isInstructor  || isAdmin} className="btn btn-primary" onClick={() => handleSelectClass(cls)}>Select Class</button>
                                 </div>
                             </div>
                         </div>

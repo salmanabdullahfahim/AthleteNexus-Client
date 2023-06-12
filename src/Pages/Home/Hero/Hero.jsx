@@ -5,13 +5,13 @@ import { RxDotFilled } from 'react-icons/rx';
 const Hero = () => {
   const slides = [
     {
-      url: 'https://i.ibb.co/dW5yj8j/pexels-patrick-case-3628912.jpg',
+      url: 'https://static.vecteezy.com/system/resources/previews/023/956/627/non_2x/3d-text-with-abstract-purple-background-for-cricket-match-header-poster-or-banner-design-with-wicket-and-ball-equipment-vector.jpg',
     },
     {
-      url: 'https://i.ibb.co/yNGwG8j/pexels-miracle-15874987.jpg',
+      url: 'https://static.vecteezy.com/system/resources/previews/014/467/937/non_2x/a-man-kicks-the-ball-hard-football-training-logo-design-template-vector.jpg',
     },
     {
-      url: 'https://i.ibb.co/6vD3KXN/pexels-vlad-vasnetsov-2202685.jpg',
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK8brzwtkRZLRXaP5kz-o8IzvgkZX88HFp7Q&usqp=CAU',
     },
 
     {

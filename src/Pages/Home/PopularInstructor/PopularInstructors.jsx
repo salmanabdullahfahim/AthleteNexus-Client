@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Instructors = () => {
+const PopularInstructors = () => {
 
 
     const [instructors, setInstructors] = useState([]);
@@ -14,8 +14,8 @@ const Instructors = () => {
             })
     }, [])
     return (
-        <div>
-            <h2 className='text-center font-bold text-3xl text-[#6674cc] my-6'>All Instructors 👨‍🏫</h2>
+        <div className='my-16'>
+            <h2 className='text-center font-bold text-4xl text-[#6674cc] my-6'>Popular Instructors 👨‍🏫</h2>
 
             <div className="flex justify-center">
                 <div className='grid md:grid-cols-3 gap-5 w-11/12 mx-auto'>
@@ -43,4 +43,4 @@ const Instructors = () => {
     );
 };
 
-export default Instructors;
+export default PopularInstructors;

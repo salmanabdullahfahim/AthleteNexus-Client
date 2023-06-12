@@ -1,13 +1,16 @@
 import React from 'react';
 import usePopularClasses from '../../../Hook/usePopularClasses';
 
+
+
+
 const PopularClasses = () => {
 
     const [popularClasses] = usePopularClasses();
 
     return (
         <>
-            <h2 className='my-12 text-center text-4xl font-bold'>Popular Classes 🔥</h2>
+            <h2 className='my-12 text-center font-bold text-4xl text-[#6674cc] '>Popular Classes 🔥</h2>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-2'>
                 {
                     popularClasses.map((popularClass) => {

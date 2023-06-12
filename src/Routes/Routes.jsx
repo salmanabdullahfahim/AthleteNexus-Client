@@ -19,7 +19,7 @@ import Payment from "../Pages/Payment/Payment";
 import MyEnrolledClasses from "../Pages/Dashboard/MyEnrolledClasses";
 import MyClasses from "../Pages/Dashboard/MyClasses";
 import PrivateRoutes from "./PrivateRoutes";
-import UpdateAClass from "../Pages/Dashboard/UpdateAClass";
+import UpdateClass from "../Pages/Dashboard/UpdateClass";
 
 const router = createBrowserRouter([
     {
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'updateClass/:id',
-                element: <UpdateAClass></UpdateAClass>
+                element: <UpdateClass></UpdateClass>
             },
             {
                 path: 'manageClasses',
