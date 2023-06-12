@@ -7,7 +7,7 @@ const Community = () => {
   return (
     <div className='my-12'>
       <div>
-        <h2 className='font-semibold text-5xl text-center'>
+        <h2 className='font-bold text-center text-4xl text-[#6674cc] '>
           Join our Community
         </h2>
         <p className='text-center text-xl py-4'>
