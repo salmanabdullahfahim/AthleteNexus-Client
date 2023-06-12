@@ -15,19 +15,24 @@ const Instructors = () => {
     }, [])
     return (
         <div>
-            <h2 className='text-center font-bold text-3xl text-primary my-6'>All Instructors</h2>
+            <h2 className='text-center font-bold text-3xl text-primary my-6'>All Instructors 👨‍🏫</h2>
 
             <div className="flex justify-center">
                 <div className='grid md:grid-cols-3 gap-5 w-11/12 mx-auto'>
                     {
                         instructors?.map(instructor => <>
-                            <div className="card w-96 bg-base-100 shadow-xl">
-                                <figure><img src={instructor?.photoURL} /></figure>
-                                <div className="card-body">
-                                    <p className="card-title">Instructor Name: {instructor?.name}</p>
-                                    <p>Instructor Email: {instructor?.email}</p>
-
-
+                            <div className="w-[300px] mx-auto rounded-md border-none shadow-md">
+                                <img
+                                    src={instructor?.photoURL}
+                                    alt="Laptop"
+                                    className="h-[200px] w-full rounded-md object-cover"
+                                />
+                                <div className="p-4">
+                                    <h1 className="text-lg font-semibold">{instructor?.name}</h1>
+                                    <p className="mt-3 text-sm ">
+                                        Email: {instructor?.email}
+                                    </p>
+                                    
                                 </div>
                             </div>
                         </>)

@@ -70,13 +70,17 @@ const AllClasses = () => {
     return (
         <div>
 
-            <h2 className='text-center font-bold text-3xl text-primary my-6'>All Classes</h2>
+            <h2 className='text-center font-bold text-3xl text-primary my-6'>All Classes 🧮</h2>
 
             <div className='grid md:grid-cols-3 gap-5 w-11/12 mx-auto'>
                 {
                     allClass?.map(cls => <>
-                        <div className="card w-96 bg-base-100 shadow-xl" key={cls._id}>
-                            <figure><img src={cls?.classImage} /></figure>
+                        <div className="w-[300px] mx-auto rounded-md border-none shadow-md" key={cls._id}>
+                            <img
+                                src={cls?.classImage}
+                                alt="Laptop"
+                                className="h-[200px] w-full rounded-md object-cover"
+                            />
                             <div className="card-body">
                                 <h2 className="card-title">Class Name: {cls?.className}</h2>
                                 <p>Instructor Name: {cls?.instructorName}</p>
