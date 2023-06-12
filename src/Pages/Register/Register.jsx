@@ -45,7 +45,7 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL, role:'student' }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://athlete-nexus-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -70,7 +70,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 const saveUser = { name: user?.displayName, email: user?.email, photoURL: user?.photoURL, role: 'student' }
-                fetch('http://localhost:5000/users', {
+                fetch('https://athlete-nexus-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -101,7 +101,7 @@ const Register = () => {
                 <img className='w-full h-96 mt-24 ' src={RegisterImage} alt="" />
             </div>
 
-            <div className='bg-white flex flex-col justify-center'>
+            <div className=' flex flex-col justify-center'>
                 <div className='max-w-[450px] w-full mx-auto rounded-lg bg-gray-200 p-8 px-8'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <h2 className='text-4xl text-gray-800 font-bold text-center'>Register</h2>
@@ -162,9 +162,9 @@ const Register = () => {
                             />
                         </div>
 
-                        <button className='w-full my-5 py-2 bg-primary shadow-lg shadow-primary-500/50 hover:shadow-primary-400/40 text-white font-semibold rounded-lg'>Register</button>
+                        <button className='w-full my-5 py-2 bg-[#6674cc] shadow-lg shadow-[#6674cc]/50 hover:shadow-[#6674cc] /50 text-white font-semibold rounded-lg'>Register</button>
                         <p className='text-gray-800 text-center text-sm'>Already have an account?
-                            <Link to="/login" className='text-primary hover:underline'>Please LogIn</Link> </p>
+                            <Link to="/login" className='text-primary hover:underline'> Please LogIn</Link> </p>
                     </form>
                     <div>
                         <div className="divider">OR</div>

@@ -11,7 +11,7 @@ const useDeniedClasses = () => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const res = await axios.get('http://localhost:5000/classes/denied', config);
+      const res = await axios.get('https://athlete-nexus-server.vercel.app/classes/denied', config);
       return res.data;
     },
   });

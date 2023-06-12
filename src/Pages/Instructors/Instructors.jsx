@@ -7,7 +7,7 @@ const Instructors = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/users/instructor')
+        fetch('https://athlete-nexus-server.vercel.app/users/instructor')
             .then(res => res.json())
             .then(data => {
                 setInstructors(data)

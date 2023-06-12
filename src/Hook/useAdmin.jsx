@@ -10,7 +10,7 @@ const useAdmin = () => {
     queryKey: ['isAdmin', user?.email],
     queryFn: async () => {
       const token = localStorage.getItem('access-token');
-      const res = await axios.get(`http://localhost:5000/users/admin/${user?.email}`, {
+      const res = await axios.get(`https://athlete-nexus-server.vercel.app/users/admin/${user?.email}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

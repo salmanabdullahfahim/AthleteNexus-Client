@@ -28,7 +28,7 @@ const MySelectedClasses = () => {
   };
 
   const handleSwalConfirm = (cls) => {
-    const url = `http://localhost:5000/classes/selected/?id=${cls.classId}&email=${user?.email}`;
+    const url = `https://athlete-nexus-server.vercel.app/classes/selected/?id=${cls.classId}&email=${user?.email}`;
     fetch(url, {
       method: 'DELETE',
 

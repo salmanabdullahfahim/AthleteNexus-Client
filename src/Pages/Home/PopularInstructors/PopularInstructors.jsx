@@ -9,12 +9,13 @@ const PopularInstructors = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/users/instructor')
+        fetch('https://athlete-nexus-server.vercel.app/users/instructor')
             .then(res => res.json())
             .then(data => {
                 setInstructors(data)
             })
     }, [])
+
     return (
         <div className='my-16'>
             <h2 className='text-center font-bold text-4xl text-[#6674cc] my-12 mt-6'>Popular Instructors 👨‍🏫</h2>
@@ -22,7 +23,7 @@ const PopularInstructors = () => {
             <div className="flex justify-center">
                 <div className='grid md:grid-cols-3 gap-5 w-11/12 mx-auto'>
                     {
-                        instructors?.map(instructor => <>
+                        instructors?.map(instructor => <div key={instructor._id}>
                             <div className="w-[300px] mx-auto rounded-md border-none shadow-md">
                                 <img
                                     src={instructor?.photoURL}
@@ -37,7 +38,7 @@ const PopularInstructors = () => {
                                     
                                 </div>
                             </div>
-                        </>)
+                        </div>)
                     }
                 </div>
             </div>

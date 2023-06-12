@@ -60,7 +60,7 @@ const AddAClass = () => {
   const handleSwalFireWithUpdate = (classData) => {
 
     const token = localStorage.getItem('access-token');
-    fetch('http://localhost:5000/classes', {
+    fetch('https://athlete-nexus-server.vercel.app/classes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ const AddAClass = () => {
             <input
               type='submit'
               value='Add Class'
-              className='px-4 py-2 my-3 w-full font-semibold text-white bg-primary rounded-md hover:bg-primary/80  focus:outline-none focus:bg-blue-600'
+              className='px-4 py-2 my-3 w-full font-semibold text-white bg-[#6674cc] rounded-md hover:bg-[#6674cc]/80  focus:outline-none focus:bg-blue-600'
             />
           </div>
         </form>

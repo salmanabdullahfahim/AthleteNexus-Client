@@ -1,8 +1,10 @@
 import React from 'react';
 import Hero from '../Hero/Hero';
 import Community from '../Community/Community';
+import PopularInstructors from '../PopularInstructors/PopularInstructors';
 import PopularClasses from '../PopularClasses/PopularClasses';
-import PopularInstructors from '../PopularInstructor/popularInstructors';
+
+
 
 const Home = () => {
     return (

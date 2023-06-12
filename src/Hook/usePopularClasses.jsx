@@ -5,7 +5,7 @@ const usePopularClasses = () => {
   const { data: popularClasses = [], isLoading: loading, refetch } = useQuery({
     queryKey: ['popularClasses'],
     queryFn: async () => {
-      const res = await axios.get('http://localhost:5000/classes/popular');
+      const res = await axios.get('https://athlete-nexus-server.vercel.app/classes/popular');
       return res.data;
     },
   });

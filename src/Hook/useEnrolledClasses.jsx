@@ -15,7 +15,7 @@ const useEnrolledClasses = () => {
           Authorization: `Bearer ${token}`,
         },
       };
-      const res = await axios.get(`http://localhost:5000/payments/enrolled/student?email=${user?.email}`, config);
+      const res = await axios.get(`https://athlete-nexus-server.vercel.app/payments/enrolled/student?email=${user?.email}`, config);
       return res.data;
     },
   });

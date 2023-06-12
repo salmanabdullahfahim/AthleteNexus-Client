@@ -55,7 +55,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 const saveUser = { name: user?.displayName, email: user?.email, photoURL: user?.photoURL, role: 'student' }
-                fetch('http://localhost:5000/users', {
+                fetch('https://athlete-nexus-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -128,7 +128,7 @@ const Login = () => {
                             {errors.password?.type === 'required' && <p className="text-red-600 text-sm">Password field is required</p>}
                         </div>
 
-                        <button className='w-full my-5 py-2 bg-primary shadow-lg shadow-primary/50 hover:shadow-primary/40 text-white font-semibold rounded-lg'>Login</button>
+                        <button className='w-full my-5 py-2 bg-[#6674cc] shadow-lg shadow-[#6674cc]/50 hover:shadow-[#6674cc] /50 text-white font-semibold rounded-lg'>Login</button>
 
 
                     </form>

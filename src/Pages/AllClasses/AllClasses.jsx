@@ -43,7 +43,7 @@ const AllClasses = () => {
 
             const token = localStorage.getItem('access-token');
 
-            axios.post('http://localhost:5000/classes/selected', classData, {
+            axios.post('https://athlete-nexus-server.vercel.app/classes/selected', classData, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`

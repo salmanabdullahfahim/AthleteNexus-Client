@@ -20,7 +20,7 @@ const CheckoutForm = ({ payClass, id }) => {
 
   useEffect(() => {
     if (payClass?.price > 0) {
-      axios.post('http://localhost:5000/create-payment-intent', {
+      axios.post('https://athlete-nexus-server.vercel.app/create-payment-intent', {
         price: parseFloat(payClass?.price)
 
       }, {
@@ -102,12 +102,12 @@ const CheckoutForm = ({ payClass, id }) => {
         },
       };
 
-      axios.post('http://localhost:5000/payments', payment, config)
+      axios.post('https://athlete-nexus-server.vercel.app/payments', payment, config)
         .then(res => {
           console.log("from step one", res.data);
 
           if (res.data.postResult.insertedId) {
-            axios.delete(`http://localhost:5000/classes/selected?id=${payClass?.classId}&email=${user?.email}`, config)
+            axios.delete(`https://athlete-nexus-server.vercel.app/classes/selected?id=${payClass?.classId}&email=${user?.email}`, config)
               .then(res => {
                 if (res.data.deletedCount > 0) {
                   Swal.fire(

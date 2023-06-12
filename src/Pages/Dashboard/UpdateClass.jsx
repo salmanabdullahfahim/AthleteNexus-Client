@@ -67,7 +67,7 @@ const UpdateClass = () => {
     const token = localStorage.getItem('access-token');
 
     axios
-      .patch('http://localhost:5000/classes/update', { classData }, {
+      .patch('https://athlete-nexus-server.vercel.app/classes/update', { classData }, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
@@ -161,7 +161,7 @@ const UpdateClass = () => {
             <input
               type='submit'
               value='Update Class'
-              className='px-4 py-2 my-3 w-full font-semibold text-white bg-primary rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600'
+              className='px-4 py-2 my-3 w-full font-semibold text-white bg-[#6674cc] rounded-md hover:bg-[#6674cc]/80 focus:outline-none focus:bg-blue-600'
             />
           </div>
         </form>
