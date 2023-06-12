@@ -41,9 +41,12 @@ const AllClasses = () => {
             cls.studentEmail = user?.email;
             // Send data to the MongoDB server
 
+            const token = localStorage.getItem('access-token');
+
             axios.post('http://localhost:5000/classes/selected', classData, {
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
                 },
             })
                 .then((response) => {
@@ -92,7 +95,7 @@ const AllClasses = () => {
                                 <p>Available Seats: {cls?.availableSeats}</p>
                                 <p>Price: {cls?.price}</p>
                                 <div className="card-actions justify-end">
-                                    <button disabled={cls?.availableSeats == 0 || isInstructor  || isAdmin} className="btn btn-primary" onClick={() => handleSelectClass(cls)}>Select Class</button>
+                                    <button disabled={cls?.availableSeats == 0 || isInstructor || isAdmin} className="btn btn-primary" onClick={() => handleSelectClass(cls)}>Select Class</button>
                                 </div>
                             </div>
                         </div>

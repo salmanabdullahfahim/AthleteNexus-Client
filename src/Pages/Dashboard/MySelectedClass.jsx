@@ -8,6 +8,7 @@ import useSelectedClasses from '../../Hook/useSelectedClasses';
 const MySelectedClasses = () => {
   const { user } = useContext(AuthContext);
   const [selectedClasses, refetch] = useSelectedClasses();
+  const token = localStorage.getItem('access-token');
 
   const handleDeleteClass = (cls) => {
     console.log('from validate');
@@ -29,7 +30,12 @@ const MySelectedClasses = () => {
   const handleSwalConfirm = (cls) => {
     const url = `http://localhost:5000/classes/selected/?id=${cls.classId}&email=${user?.email}`;
     fetch(url, {
-      method: 'DELETE'
+      method: 'DELETE',
+
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+
     })
       .then(res => res.json())
       .then(data => {
@@ -47,7 +53,7 @@ const MySelectedClasses = () => {
 
   return (
     <div>
-        <h1 className="text-2xl font-semibold">My Selected Classes</h1>
+      <h1 className="text-2xl font-semibold">My Selected Classes</h1>
       <table className="table">
         <thead>
           <tr>

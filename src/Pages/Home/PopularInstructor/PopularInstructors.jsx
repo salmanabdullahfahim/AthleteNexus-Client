@@ -17,7 +17,7 @@ const PopularInstructors = () => {
     }, [])
     return (
         <div className='my-16'>
-            <h2 className='text-center font-bold text-4xl text-[#6674cc] my-6'>Popular Instructors 👨‍🏫</h2>
+            <h2 className='text-center font-bold text-4xl text-[#6674cc] my-12 mt-6'>Popular Instructors 👨‍🏫</h2>
 
             <div className="flex justify-center">
                 <div className='grid md:grid-cols-3 gap-5 w-11/12 mx-auto'>
