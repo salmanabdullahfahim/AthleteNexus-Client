@@ -16,7 +16,7 @@ const Community = () => {
         </p>
       </div>
 
-      <div className='my-6 flex justify-evenly items-center '>
+      <div className='my-6 flex flex-col md:flex-row justify-evenly items-center '>
         <motion.a
           href='https://www.youtube.com/'
           target='_blank'
