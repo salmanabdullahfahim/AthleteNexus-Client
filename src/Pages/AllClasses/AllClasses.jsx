@@ -4,13 +4,15 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import useSelectedClasses from '../../Hook/useSelectedClasses';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { HashLoader } from 'react-spinners';
 
 const AllClasses = () => {
 
     const { user } = useContext(AuthContext)
-    const [allClass] = useAllClasses();
+    const [allClass, loading] = useAllClasses();
     const [selectedClasses, refetch] = useSelectedClasses();
     console.log(allClass);
+
 
     const handleSelectClass = (cls) => {
 
@@ -33,12 +35,12 @@ const AllClasses = () => {
             delete classData._id;
             cls.studentEmail = user?.email;
             // Send data to the MongoDB server
-            
+
             axios.post('http://localhost:5000/classes/selected', classData, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                })
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
                 .then((response) => {
                     const data = response.data;
                     console.log(data);
@@ -67,6 +69,7 @@ const AllClasses = () => {
 
     return (
         <div>
+
             <h2 className='text-center font-bold text-3xl text-primary my-6'>All Classes</h2>
 
             <div className='grid md:grid-cols-3 gap-5 w-11/12 mx-auto'>
@@ -80,7 +83,7 @@ const AllClasses = () => {
                                 <p>Available Seats: {cls?.availableSeats}</p>
                                 <p>Price: {cls?.price}</p>
                                 <div className="card-actions justify-end">
-                                    <button disabled={cls?.availableSeats == 0} className="btn btn-primary" onClick={() => handleSelectClass(cls)}>Select Class</button>
+                                    <button disabled={cls?.availableSeats == 0 || cls?.role == 'instructor' || cls?.role == 'admin'} className="btn btn-primary" onClick={() => handleSelectClass(cls)}>Select Class</button>
                                 </div>
                             </div>
                         </div>

@@ -78,7 +78,7 @@ const ManageClasses = () => {
 
     return (
         <div>
-            <h1>Manage Classes</h1>
+            <h1 className="text-2xl font-semibold">Manage Classes</h1>
             <table className="table">
                 <thead>
                     <tr>

@@ -137,13 +137,7 @@ const CheckoutForm = ({ payClass, id }) => {
                     }}
                 />
                 <button type="submit" className="btn btn-success mt-4" disabled={!stripe || !clientSecret || processing || !user}>
-                    {processing ? (
-                        <span>
-                            Processing <span className="loading loading-spinner"></span>
-                        </span>
-                    ) : (
-                        "Pay"
-                    )}
+                   pay
                 </button>
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}

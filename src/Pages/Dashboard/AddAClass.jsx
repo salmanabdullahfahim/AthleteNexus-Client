@@ -68,7 +68,7 @@ const AddAClass = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           reset();
           Swal.fire(
             `${classData.className} Added Successfully!`,
