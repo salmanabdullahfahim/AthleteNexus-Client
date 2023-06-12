@@ -7,11 +7,16 @@ const ManageUsers = () => {
     const [users, refetch] = useAllUsers();
     console.log(users)
 
+    const token = localStorage.getItem('access-token');
+
     const handleChangeRole = (user, role) => {
         const url = `http://localhost:5000/users/role/?id=${user._id}&role=${role}`;
 
         fetch(url, {
-            method: 'PATCH'
+            method: 'PATCH',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -45,9 +50,13 @@ const ManageUsers = () => {
         });
 
         const handleSwalConfirm = () => {
+
             const url = `http://localhost:5000/users?id=${user._id}`;
             fetch(url, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {

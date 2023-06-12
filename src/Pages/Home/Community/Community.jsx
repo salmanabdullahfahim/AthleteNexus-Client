@@ -24,7 +24,7 @@ const Community = () => {
           whileTap={{ scale: 0.9 }}
         >
           <img
-            src="../../../../src/assets/Community/YT.png"
+            src="https://i.ibb.co/YTSJ3xm/YT.png"
             alt=""
             className='w-36'
           />
@@ -40,7 +40,7 @@ const Community = () => {
           whileTap={{ scale: 0.9 }}
         >
           <img
-            src="../../../../src/assets/Community/Facebook.png"
+            src="https://i.ibb.co/V2h4xk3/Facebook.png"
             alt=""
             className='w-20'
           />
@@ -56,7 +56,7 @@ const Community = () => {
           whileTap={{ scale: 0.9 }}
         >
           <img
-            src="../../../../src/assets/Community/Linkedin.png"
+            src="https://i.ibb.co/Px58qby/Linkedin.png"
             alt=""
             className='w-24'
           />
@@ -72,7 +72,7 @@ const Community = () => {
           whileTap={{ scale: 0.9 }}
         >
           <img
-            src="../../../../src/assets/Community/Telegram.png"
+            src="https://i.ibb.co/DMJMhJC/Telegram.png"
             alt=""
             className='w-24'
           />

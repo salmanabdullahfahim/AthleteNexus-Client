@@ -11,12 +11,12 @@ const PopularClasses = () => {
     return (
         <>
             <h2 className='my-12 text-center font-bold text-4xl text-[#6674cc] '>Popular Classes 🔥</h2>
-            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-2'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {
                     popularClasses.map((popularClass) => {
                         return (
                             <div key={popularClass._id}>
-                                <div className="w-[300px] mx-auto rounded-md border-none shadow-md">
+                                <div className="w-[300px] mx-auto rounded-md border-none shadow-lg">
                                     <img
                                         src={popularClass?.classImage}
                                         alt="Laptop"
