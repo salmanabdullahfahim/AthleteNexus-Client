@@ -12,10 +12,10 @@ import SwiperCore, { EffectCoverflow, Pagination, Autoplay } from "swiper";
 
 import "./styles.css";
 
-import gallery1 from '../../../../src/assets/gallery/download (2).jpg'
+import gallery1 from '../../../../src/assets/gallery/download.jpeg'
 import gallery2 from '../../../../src/assets/gallery/download (3).jpg'
-import gallery3 from '../../../../src/assets/gallery/download (4).jpg'
-import gallery4 from '../../../../src/assets/gallery/download (5).jpg'
+import gallery3 from '../../../../src/assets/gallery/badminton-summer-camp-banner.png'
+import gallery4 from '../../../../src/assets/gallery/images.jpeg'
 import gallery5 from '../../../../src/assets/gallery/Daycamp.jpg'
 import gallery6 from '../../../../src/assets/gallery/519d38_dfc53a0fb03c4a89a6882a2eb9890e7a~mv2.webp'
 
@@ -34,7 +34,7 @@ const Gallery = () => {
         <>
 
             <div>
-                <h2 className="text-center font-semibold text-3xl mt-3">Toy Gallery</h2>
+                <h2 className="font-bold text-center text-4xl text-[#6674cc] md:my-20">Spectacular Summer <br/> Camp Silliness!</h2>
             </div>
             <div className="w-8/12 mx-auto">
                 <Swiper

@@ -13,8 +13,9 @@ const Home = () => {
         <div>
             <Hero></Hero>
             <PopularClasses></PopularClasses>
-            <PopularInstructors></PopularInstructors>
             <Gallery></Gallery>
+            <PopularInstructors></PopularInstructors>
+            
             <Community></Community>
             <Faq></Faq>
             
