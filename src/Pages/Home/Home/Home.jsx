@@ -3,6 +3,8 @@ import Hero from '../Hero/Hero';
 import Community from '../Community/Community';
 import PopularInstructors from '../PopularInstructors/PopularInstructors';
 import PopularClasses from '../PopularClasses/PopularClasses';
+import Faq from '../FAQ/Faq';
+import Gallery from '../Gallery/Gallery';
 
 
 
@@ -12,7 +14,9 @@ const Home = () => {
             <Hero></Hero>
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
+            <Gallery></Gallery>
             <Community></Community>
+            <Faq></Faq>
             
         </div>
     );
